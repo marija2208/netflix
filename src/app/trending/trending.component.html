@@ -1,15 +1,69 @@
-<div class=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 ">
-<div  class=" relative h-10 ">
-    <div class=" text-white">
-        <h2 class="text-3xl font-bold mb-4">Trending Now</h2>
-        <div class="flex overflow-x-auto space-x-4 scrollbar-hide">
-            <div *ngFor="let item of trending; let i = index" class="relative flex-none w-48">
-                <img [src]="item.image" class="rounded-lg shadow-lg w-full h-64 object-cover" alt="{{ item.title }}">
-                <div class="numbers">{{ i + 1 }}</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+  <div class="relative">
+    <div class="text-white">
+      <h2 class="text-3xl font-bold mb-4">Trending Now</h2>
+
+      <div class="relative">
+        <button
+          (click)="prevSlide()"
+          class="z-40 flex justify-center text-center w-[1.5rem] h-20 bg-slate-300/30 absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 text-white rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="self-center w-8 h-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+
+        <div class="max-w-[70rem] mx-auto">
+          <div
+            #carouselContainer
+            class="flex overflow-x-auto space-x-2 scrollbar-hide"
+          >
+            @for (item of trending; track item; let i = $index) {
+            <div class="relative flex-none w-48">
+              <div class="px-5">
+                <img
+                  [src]="item.image"
+                  class="rounded-lg shadow-lg w-full h-64 object-cover"
+                  [alt]="item.title"
+                />
+              </div>
+              <div class=" mt-1 numbers">{{ i + 1 }}</div>
             </div>
+            }
+          </div>
         </div>
+
+        <button
+          (click)="nextSlide()"
+          class="flex justify-center text-center h-20 w-[1.5rem] bg-slate-300/30 absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-20 text-white rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="self-center w-8 h-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
       </div>
-
-</div>
-
+    </div>
+  </div>
 </div>
