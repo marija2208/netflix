@@ -1,0 +1,205 @@
+<div>
+  <div
+    class="relative w-full h-[85vh] md:h-[60vh] lg:h-[50vh] xl:h-[60vh] rounded-xl overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0">
+      <img
+        [src]="currentSlide.image"
+        [alt]="currentSlide.title"
+        class="w-full h-full object-fit object-center transition-opacity duration-500"
+      />
+      <div
+        class="absolute inset-0"
+        [ngClass]="currentSlide.overlayClass || 'bg-black/30'"
+      ></div>
+    </div>
+
+    <div
+      class="relative z-30 h-full w-full md:w-[60%] flex flex-col justify-center items-start px-8 md:px-12 lg:pl-16"
+    >
+      <div [ngClass]="currentSlide.titleClass || ''">
+        <img
+          *ngIf="currentSlide.metadata.logo"
+          [src]="currentSlide.metadata.logo"
+          [alt]="currentSlide.title"
+          class="w-24 sm:w-32 md:w-40 lg:w-48 xl:w-56"
+        />
+        <h1
+          *ngIf="!currentSlide.metadata.logo"
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold max-w-4xl text-white"
+        >
+          {{ currentSlide.title }}
+        </h1>
+      </div>
+
+      <div class="flex items-center gap-3 mt-3" *ngIf="currentSlide.metadata">
+        <span class="text-sm text-white/90">{{
+          currentSlide.metadata.year
+        }}</span>
+        <span
+          class="px-1.5 py-0.5 border border-white/40 text-xs text-white/90 rounded"
+          >{{ currentSlide.metadata.rating }}</span
+        >
+        <span class="text-sm text-white/90">{{
+          currentSlide.metadata.category
+        }}</span>
+        <span
+          class="text-sm text-white/90"
+          *ngIf="currentSlide.metadata && 'duration'; in: currentSlide.metadata"
+          >{{ currentSlide.metadata["duration"] }}</span
+        >
+      </div>
+
+      <p
+        class="text-sm sm:text-base md:text-lg mt-4 text-white max-w-2xl"
+        [ngClass]="currentSlide.descriptionClass || ''"
+      >
+        {{ currentSlide.description }}
+      </p>
+
+      <p class="text-xs sm:text-sm md:text-base mt-6 mb-4 text-white/90">
+        {{
+          currentSlide.ctaText ||
+            "Ready to watch? Enter your email to create or restart your membership."
+        }}
+      </p>
+
+      <div
+        class="mt-2 flex flex-col sm:flex-row gap-3 w-full max-w-xl"
+        [ngClass]="currentSlide.inputClass || ''"
+      >
+        <input
+          type="email"
+          placeholder="Email address"
+          class="p-3 md:p-4 rounded-full bg-gray-700/80 border border-gray-600 text-white w-full focus:outline-none focus:border-red-500"
+        />
+        <button
+          [ngClass]="currentSlide.buttonClass || 'bg-red-600 hover:bg-red-700'"
+          class="text-white px-6 py-3 md:py-4 rounded-full whitespace-nowrap flex items-center justify-center gap-2 transition-colors duration-300 text-base md:text-xl font-bold"
+        >
+          {{ currentSlide.buttonText || "Get Started" }}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <button
+      (click)="prevSlide()"
+      class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-20 text-white p-1 sm:p-2 rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+    </button>
+    <button
+      (click)="nextSlide()"
+      class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-20 text-white p-1 sm:p-2 rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    </button>
+
+    <div
+      class="absolute bottom-4 left-0 right-0 z-30 flex justify-center gap-2"
+    >
+      <div class="media-player-container">
+        <button
+          class="play-button"
+          (click)="togglePlayPause()"
+          [attr.aria-label]="isPlaying ? 'Pause' : 'Play'"
+        >
+          <svg
+            *ngIf="!isPlaying"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="white"
+          >
+            <polygon points="5,3 19,12 5,21" />
+          </svg>
+          <svg
+            *ngIf="isPlaying"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="white"
+          >
+            <rect x="6" y="4" width="4" height="16" />
+            <rect x="14" y="4" width="4" height="16" />
+          </svg>
+        </button>
+
+        <div class="timeline-container">
+          <ng-container *ngFor="let slide of slides; let i = index">
+            <div class="timeline-bar relative overflow-hidden">
+              <div
+                *ngIf="i === currentSlideIndex"
+                class="absolute top-0 left-0 h-full bg-white"
+                [style.width.%]="progressValue"
+              ></div>
+              <div
+                *ngIf="i !== currentSlideIndex"
+                class="absolute top-0 left-0 h-full bg-white"
+                [style.width.%]="i < currentSlideIndex ? 100 : 0"
+              ></div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="dot-indicators space-x-4">
+        <button
+        *ngFor="let slide of slides; let i = index"
+        (click)="goToSlide(i)"
+        class="h-2 w-40 rounded-full transition-all duration-300 relative overflow-hidden"
+        [ngClass]="i === currentSlideIndex ? 'bg-white/20' : 'bg-white/50 hover:bg-white/70'"
+        [attr.aria-label]="'Go to slide ' + (i + 1)"
+      >
+        <span
+          *ngIf="i === currentSlideIndex"
+          class="absolute inset-0 bg-white transition-all duration-300"
+          [style.width]="progressValue + '%'"
+        ></span>
+      </button>
+      
+      </div>
+    </div>
+  </div>
+</div>
