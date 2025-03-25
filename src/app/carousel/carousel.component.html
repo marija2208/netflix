@@ -1,6 +1,6 @@
 <div>
   <div
-    class="relative w-full h-[85vh] md:h-[60vh] lg:h-[50vh] xl:h-[60vh] rounded-xl overflow-hidden "
+    class="relative w-full h-[85vh] md:h-[60vh] lg:h-[50vh] xl:h-[60vh] rounded-xl overflow-hidden"
   >
     <div class="absolute inset-0 z-0">
       <img
@@ -97,11 +97,11 @@
 
     <button
       (click)="prevSlide()"
-      class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-20 text-white p-1 sm:p-2 rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
+      class=" z-40 flex justify-center  text-center w-[1.5rem] h-20  bg-slate-300/30 absolute  left-2 sm:left-4 top-1/2 transform -translate-y-1/2  text-white rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8"
+        class="self-center w-8 h-8"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -114,13 +114,14 @@
         />
       </svg>
     </button>
+
     <button
       (click)="nextSlide()"
-      class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-20 text-white p-1 sm:p-2 rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
+      class="flex justify-center text-center h-20 w-[1.5rem] bg-slate-300/30 absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-20 text-white rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8"
+        class="self-center w-8 h-8"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -184,21 +185,24 @@
         </div>
       </div>
 
-      <div class="dot-indicators space-x-4" >
+      <div class="dot-indicators space-x-4">
         <button
-        *ngFor="let slide of slides; let i = index"
-        (click)="goToSlide(i)"
-        class="h-2 w-40 rounded-full transition-all duration-300 relative overflow-hidden"
-        [ngClass]="i === currentSlideIndex ? 'bg-white/20' : 'bg-white/50 hover:bg-white/70'"
-        [attr.aria-label]="'Go to slide ' + (i + 1)"
-      >
-        <span
-          *ngIf="i === currentSlideIndex"
-          class="absolute inset-0 bg-white transition-all duration-300"
-          [style.width]="progressValue + '%'"
-        ></span>
-      </button>
-      
+          *ngFor="let slide of slides; let i = index"
+          (click)="goToSlide(i)"
+          class="h-2 w-40 rounded-full transition-all duration-300 relative overflow-hidden"
+          [ngClass]="
+            i === currentSlideIndex
+              ? 'bg-white/20'
+              : 'bg-white/50 hover:bg-white/70'
+          "
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+        >
+          <span
+            *ngIf="i === currentSlideIndex"
+            class="absolute inset-0 bg-white transition-all duration-300"
+            [style.width]="progressValue + '%'"
+          ></span>
+        </button>
       </div>
     </div>
   </div>
