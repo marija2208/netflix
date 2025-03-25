@@ -2,11 +2,6 @@
     @apply block;
   }
   
-  .slide-animation {
-    @apply transition-all duration-500;
-    transition-timing-function: ease-in-out;
-  }
-  
   .slide-enter {
     @apply opacity-0;
     transform: translateX(100%);
@@ -26,6 +21,7 @@
     @apply opacity-0;
     transform: translateX(-100%);
   }
+  
   
   button:focus {
     @apply outline-none;

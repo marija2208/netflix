@@ -60,3 +60,4 @@ img {
 .gradient-overlay {
   @apply bg-gradient-to-t from-black/70 via-black/40 to-black/20;
 }
+

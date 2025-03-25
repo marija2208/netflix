@@ -1,0 +1,15 @@
+<div class=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 ">
+<div  class=" relative h-10 ">
+    <div class=" text-white">
+        <h2 class="text-3xl font-bold mb-4">Trending Now</h2>
+        <div class="flex overflow-x-auto space-x-4 scrollbar-hide">
+            <div *ngFor="let item of trending; let i = index" class="relative flex-none w-48">
+                <img [src]="item.image" class="rounded-lg shadow-lg w-full h-64 object-cover" alt="{{ item.title }}">
+                <div class="numbers">{{ i + 1 }}</div>
+            </div>
+        </div>
+      </div>
+
+</div>
+
+</div>

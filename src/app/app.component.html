@@ -1,25 +1,25 @@
-<main class="relative w-full h-screen overflow-hidden bg-black">
-  <div
-    class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/90 z-20"
-  ></div>
-
+<main class="relative w-full min-h-screen overflow-hidden bg-black">
   <div class="absolute inset-0 z-0">
     <img
-      src="../assets/netflix.jpg"
+      src="../../assets/netflix.jpg"
       class="w-full h-full object-cover filter blur-sm brightness-75"
       alt="Netflix background"
     />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/90"></div>
   </div>
 
-  <div class="max-w-7xl mx-auto">
+  <div class="absolute inset-0 bg-black-30 z-10"></div>
+
+  <div class="relative overflow-auto  mx-auto z-30  min-h-screen mb-2">
+    <div class="max-w-7xl mx-auto">
     <div class="relative z-30 h-full flex flex-col">
       <header class="flex justify-between items-center p-6">
-        <img src="../assets/netflixlogo.svg" class="w-32" alt="Netflix logo" />
+        <img src="../../assets/netflixlogo.svg" class="w-32" alt="Netflix logo" />
         <button class="bg-white px-4 py-1 rounded-full">Sign In</button>
       </header>
     </div>
     <app-carousel />
-
-    
+    <app-trending />
+  </div>
   </div>
 </main>
