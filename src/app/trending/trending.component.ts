@@ -1,12 +1,10 @@
 
 
-import { NgFor } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-trending',
   standalone: true,
-  imports: [NgFor],
   templateUrl: './trending.component.html',
   styleUrl: './trending.component.css'
 })
