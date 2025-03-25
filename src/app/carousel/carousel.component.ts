@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SlideService } from '../services/slide.service';
 
 interface SlideMetadata {
   logo?: string;
@@ -79,7 +80,6 @@ export class CarouselComponent implements OnInit {
       buttonClass: 'bg-red-600 hover:bg-red-700',
       inputClass: '',
     },
-
     {
       id: 3,
       title: 'Back in action',
@@ -131,8 +131,12 @@ export class CarouselComponent implements OnInit {
   slideDuration = 5000; 
   progressValue = 0;
 
+  constructor(private slideService: SlideService) {}
+
   ngOnInit(): void {
     this.startAutoRotation();
+    // Initialize with the first slide's image
+    this.slideService.updateCurrentImage(this.slides[0].image);
   }
 
   get currentSlide(): Slide {
@@ -145,6 +149,8 @@ export class CarouselComponent implements OnInit {
       this.currentSlideIndex === 0
         ? this.slides.length - 1
         : this.currentSlideIndex - 1;
+    // Update the image in the service
+    this.slideService.updateCurrentImage(this.currentSlide.image);
   }
 
   nextSlide(): void {
@@ -153,12 +159,16 @@ export class CarouselComponent implements OnInit {
       this.currentSlideIndex === this.slides.length - 1
         ? 0
         : this.currentSlideIndex + 1;
+    // Update the image in the service
+    this.slideService.updateCurrentImage(this.currentSlide.image);
   }
 
   goToSlide(index: number): void {
     if (index >= 0 && index < this.slides.length) {
       this.resetProgress();
       this.currentSlideIndex = index;
+      // Update the image in the service
+      this.slideService.updateCurrentImage(this.currentSlide.image);
     }
   }
 
@@ -202,8 +212,6 @@ export class CarouselComponent implements OnInit {
       if (this.isPlaying) requestAnimationFrame(animate); 
     }, this.slideDuration);
   }
-  
-  
 
   stopAutoRotation(): void {
     this.isPlaying = false;
