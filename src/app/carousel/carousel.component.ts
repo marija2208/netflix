@@ -135,7 +135,6 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit(): void {
     this.startAutoRotation();
-    // Initialize with the first slide's image
     this.slideService.updateCurrentImage(this.slides[0].image);
   }
 
@@ -149,7 +148,6 @@ export class CarouselComponent implements OnInit {
       this.currentSlideIndex === 0
         ? this.slides.length - 1
         : this.currentSlideIndex - 1;
-    // Update the image in the service
     this.slideService.updateCurrentImage(this.currentSlide.image);
   }
 
@@ -159,7 +157,6 @@ export class CarouselComponent implements OnInit {
       this.currentSlideIndex === this.slides.length - 1
         ? 0
         : this.currentSlideIndex + 1;
-    // Update the image in the service
     this.slideService.updateCurrentImage(this.currentSlide.image);
   }
 
@@ -167,7 +164,6 @@ export class CarouselComponent implements OnInit {
     if (index >= 0 && index < this.slides.length) {
       this.resetProgress();
       this.currentSlideIndex = index;
-      // Update the image in the service
       this.slideService.updateCurrentImage(this.currentSlide.image);
     }
   }
