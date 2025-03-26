@@ -1,0 +1,28 @@
+@reference "tailwindcss";
+
+
+  .faq-container {
+    @apply max-w-7xl mx-auto p-6;
+  }
+
+  .faq-title {
+    @apply text-3xl font-bold mb-4 text-white;
+  }
+
+  .faq-item {
+    @apply mb-2 border rounded-xl;
+  }
+
+  .faq-button {
+    @apply w-full text-left p-4 hover:bg-[#3f3f3f] border-2 ring-2 border-[#2b2b2b] ring-[#2b2b2b] 
+    hover:ring-[#474747] hover:border-[#474747] bg-[#272727] text-gray-200 font-semibold 
+    flex justify-between items-center rounded-xl min-h-20;
+  }
+
+  .faq-icon {
+    @apply text-gray-200 font-light text-3xl mr-4;
+  }
+
+  .faq-answer {
+    @apply p-4 bg-[#272727] text-gray-200 rounded-xl mt-2;
+  }

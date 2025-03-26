@@ -4,10 +4,11 @@ import { TrendingComponent } from './trending/trending.component';
 import { SlideService } from '../app/services/slide.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { FaqComponent } from './faq/faq.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CarouselComponent, TrendingComponent, CommonModule],
+  imports: [CarouselComponent, TrendingComponent, CommonModule ,FaqComponent],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

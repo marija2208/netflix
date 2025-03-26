@@ -1,5 +1,5 @@
 <main class="relative w-full min-h-screen overflow-hidden bg-black">
-  <div class="absolute inset-0 z-0">
+  <div class="absolute inset-0 z-0 " >
     <img
       [src]="currentBackgroundImage"
       class="w-full h-full object-cover filter blur-sm brightness-75"
@@ -25,9 +25,15 @@
         </header>
       </div>
       <app-carousel />
+
+    </div>
+  
+    <div class="bg-gradient-to-b from-black/10 via-black/70 to-black p-6">
+      
       <app-trending />
+
     <div class="text-white p-10 max-w-7xl mx-auto">
-        <h2 class="text-2xl font-bold mb-6">More Reasons to Join</h2>
+        <h2 class="text-3xl font-bold mb-6">More Reasons to Join</h2>
         <div class="grid md:grid-cols-4 gap-6">
           <div
             class="bg-black/40 border-black p-6 rounded-xl shadow-lg flex flex-col h-full"
@@ -101,7 +107,11 @@
           </div>
         </div>
       </div>
-    </div>
+    <app-faq />
   </div>
+
+
+  </div>
+
   
 </main>
