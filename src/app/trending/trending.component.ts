@@ -62,7 +62,7 @@ export class TrendingComponent {
       genres: ['Action', 'Drama']
 
      },
-    { title: 'Back in Action', image: '../../assets/backinaction.jpeg', description: 'Fifteen years after vanishing from the CIA to start a family, elite spies Matt and Emily jump back into the world of espionage when their cover is blown.', year: '2025', rating: '16+', category: 'Show', genres: ['Action', 'Drama'] },
+    { title: 'Back in Action', image: '../../assets/backinaction.png', description: 'Fifteen years after vanishing from the CIA to start a family, elite spies Matt and Emily jump back into the world of espionage when their cover is blown.', year: '2025', rating: '16+', category: 'Show', genres: ['Action', 'Drama'] },
 
     { title: 'The Residence', image: '../../assets/theresidence.jpeg', description: 'A young couple moves into an apartment only to be surrounded by peculiar neighbors and occurrences. When the wife becomes mysteriously pregnant, paranoia over the safety of her unborn child begins to control her life.', year: '2025', rating: '16+', category: 'Show', genres: ['Horror', 'Thriller'] },
   ];
