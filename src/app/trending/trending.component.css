@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 .numbers {
   position: absolute;
   top: 3px;
@@ -7,4 +9,135 @@
   line-height: 1;
   color: rgba(0, 0, 0, 0.8);
   -webkit-text-stroke: 0.125rem rgb(255, 255, 255);
+}
+
+.trending-section {
+  margin: 2rem 0;
+}
+
+.carousel-navigation {
+  @apply flex items-center relative;
+}
+
+.carousel-container {
+  @apply w-full overflow-x-hidden;
+  scroll-behavior: smooth;
+}
+
+.carousel-items {
+  @apply flex p-2;
+  gap: 1rem;
+}
+
+.carousel-item {
+  @apply min-w-[200px] cursor-pointer relative;
+  transition: transform 0.3s;
+}
+
+.carousel-item:hover {
+  @apply scale-105;
+}
+
+.carousel-item img {
+  @apply w-full h-auto rounded;
+}
+
+.item-title {
+  @apply absolute bottom-0 left-0 right-0 bg-black/70 text-white p-2 text-center text-[0.9rem];
+}
+
+.nav-button {
+  @apply bg-black/50 text-white border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer absolute z-[1];
+}
+
+
+
+.prev-button {
+  @apply left-[10px];
+}
+
+.next-button {
+  @apply right-[10px];
+}
+
+
+.dialog-overlay {
+  @apply fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center z-[1000] bg-black/70  min-h-[670px] min-w-[587px] p-10  ;
+}
+
+.dialog-content {
+  @apply relative w-[90%] max-w-[600px] max-h-[90vh] rounded-xl overflow-hidden z-[1000] ;
+  animation: fadeIn 0.3s ease-out;
+  
+}
+
+.dialog-background {
+  @apply bg-cover bg-no-repeat bg-center text-white p-8 flex flex-col bg-gradient-to-b from-black/20 via-black/60 to-black;
+}
+
+.close-button {
+  @apply absolute top-4 right-4 bg-transparent border-none text-white text-[1.5rem] cursor-pointer z-[100];
+}
+
+.brand-label {
+  @apply flex items-center mb-4;
+  gap: 0.5rem;
+}
+
+.streaming-logo {
+  @apply h-[30px];
+}
+
+
+
+.series-label {
+  @apply text-base opacity-90;
+  letter-spacing: 2px;
+}
+.dialog-title {
+  @apply text-[2.5rem] my-2 font-bold uppercase;
+  letter-spacing: 1px;
+}
+
+.metadata {
+  @apply flex  flex-wrap gap-2 mb-5 text-sm;
+
+}
+
+
+.description {
+  @apply text-base mb-8 max-w-[600px];
+  line-height: 1.5;
+}
+
+.get-started {
+  @apply flex mt-auto;
+  gap: 0.5rem;
+}
+
+.email-input {
+  @apply flex-1  border border-[#333] max-w-[400px] text-white rounded-full;
+  padding: 0.8rem;
+  background-color: rgba(22, 22, 22, 0.7);
+}
+
+.get-started-button {
+  @apply text-white border-none  font-bold cursor-pointer flex items-center justify-center rounded-full bg-red-500;
+  padding: 0.8rem 1.5rem;
+  gap: 0.5rem;
+}
+
+.arrow {
+  font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

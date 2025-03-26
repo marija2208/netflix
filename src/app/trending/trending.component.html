@@ -1,69 +1,108 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
-  <div class="relative">
-    <div class="text-white">
-      <h2 class="text-3xl font-bold mb-4">Trending Now</h2>
-
-      <div class="relative">
-        <button
-          (click)="prevSlide()"
-          class="z-40 flex justify-center text-center w-[1.5rem] h-20 bg-slate-300/30 absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 text-white rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="self-center w-8 h-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+    <div class="relative">
+      <div class="text-white">
+        <h2 class="text-3xl font-bold mb-4">Trending Now</h2>
+  
+        <div class="relative">
+          <button
+            (click)="prevSlide()"
+            class="z-40 flex justify-center text-center w-[1.5rem] h-20 bg-slate-300/30 absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 text-white rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-
-        <div class="max-w-[70rem] mx-auto">
-          <div
-            #carouselContainer
-            class="flex overflow-x-auto space-x-2 scrollbar-hide"
-          >
-            @for (item of trending; track item; let i = $index) {
-            <div class="relative flex-none w-48">
-              <div class="px-5">
-                <img
-                  [src]="item.image"
-                  class="rounded-lg shadow-lg w-full h-64 object-cover"
-                  [alt]="item.title"
-                />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="self-center w-8 h-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+  
+          <div class="max-w-[70rem] mx-auto">
+            <div
+              #carouselContainer
+              class="flex overflow-x-auto space-x-2 scrollbar-hide"
+            >
+              @for (item of trending; track item; let i = $index) {
+              <div class="relative flex-none w-48" (click)="openDialog(item)">
+                <div class="px-5">
+                  <img
+                    [src]="item.image"
+                    class="rounded-lg shadow-lg w-full h-64 object-cover cursor-pointer"
+                    [alt]="item.title"
+                  />
+                </div>
+                <div class="mt-1 numbers">{{ i + 1 }}</div>
               </div>
-              <div class=" mt-1 numbers">{{ i + 1 }}</div>
+              }
             </div>
-            }
           </div>
-        </div>
-
-        <button
-          (click)="nextSlide()"
-          class="flex justify-center text-center h-20 w-[1.5rem] bg-slate-300/30 absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-20 text-white rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="self-center w-8 h-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+  
+          <button
+            (click)="nextSlide()"
+            class="flex justify-center text-center h-20 w-[1.5rem] bg-slate-300/30 absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-20 text-white rounded-full opacity-70 hover:opacity-100 transition-opacity duration-200"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="self-center w-8 h-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  
+  <div class="dialog-overlay min-h-[800px]" *ngIf="showDialog" (click)="closeDialog()">
+    <div class="dialog-content " (click)="$event.stopPropagation()">
+      <button class="close-button" (click)="closeDialog()">✕</button>
+      
+      <div class="dialog-background" [style.backgroundImage]="'linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url(' + selectedItem?.image + ')'">
+        <div class="brand-label">
+          <img src="../../assets/shortnetflix.png" alt="Netflix" class="streaming-logo">
+          <span class="series-label">SERIES</span>
+        </div>
+        
+        <h1 class="dialog-title">{{ selectedItem?.title }}</h1>
+        
+        <div class="metadata">
+          <span>{{ selectedItem?.year || '2025' }}</span>
+          <span class="separator">•</span>
+          <span>{{ selectedItem?.rating || '16+' }}</span>
+          <span class="separator">•</span>
+          <span>{{ selectedItem?.category || 'Show' }}</span>
+          <span class="separator">•</span>
+          <span *ngFor="let genre of selectedItem?.genres || ['Thrillers', 'Dramas']; let last = last">
+            {{ genre }}<span *ngIf="!last" class="separator">•</span>
+          </span>
+        </div>
+        
+        <p class="description">
+          {{ selectedItem?.description || '' }}
+        </p>
+        
+        <div class="get-started">
+          <input type="email" placeholder="Email address" class="email-input">
+          <button class="get-started-button">
+            Get Started
+            <span class="arrow">›</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
