@@ -86,7 +86,7 @@ export class CarouselComponent implements OnInit {
       subtitle: 'Save your favorites and always have something to watch.',
       description:
         'Fifteen years after vanishing from the CIA to start a family, elite spies Matt and Emily jump back into the world of espionage when their cover is blown.',
-      image: '../../assets/banner1.jpeg',
+      image: '../../assets/backinaction.png',
       metadata: {
         logo: '../../assets/BackInAction.webp',
         year: '2023',
