@@ -86,7 +86,7 @@ export class CarouselComponent implements OnInit {
       subtitle: 'Save your favorites and always have something to watch.',
       description:
         'Fifteen years after vanishing from the CIA to start a family, elite spies Matt and Emily jump back into the world of espionage when their cover is blown.',
-      image: '../../assets/backinaction.png',
+      image: '../../assets/backinaction.jpeg',
       metadata: {
         logo: '../../assets/BackInAction.webp',
         year: '2023',
@@ -119,7 +119,7 @@ export class CarouselComponent implements OnInit {
       buttonText: 'Join Now',
       titleClass: 'kids-title-style',
       descriptionClass: 'text-yellow-100',
-      overlayClass: 'bg-gradient-to-r from-purple-900/20 to-transparent',
+      overlayClass: 'bg-gradient-to-r from-black to-transparent ',
       buttonClass: 'bg-purple-600 hover:bg-purple-700',
       inputClass: '',
     },
