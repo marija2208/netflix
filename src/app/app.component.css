@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 :host {
     @apply block;
   }
@@ -51,3 +53,35 @@
       rgba(0, 0, 0, 0.2) 100%
     );
   }
+  .netflix-footer {
+    @apply bg-black text-gray-400 py-8 px-4 md:px-12 max-w-7xl mx-auto mt-10;
+}
+
+.netflix-footer-container {
+    @apply container mx-auto;
+}
+
+.netflix-footer-contact {
+    @apply mb-6;
+}
+
+.netflix-footer-contact a {
+    @apply text-gray-300 hover:underline;
+}
+
+.netflix-footer-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-2;
+}
+
+.netflix-footer-link {
+    @apply text-gray-400 mb-4 inline-block hover:underline;
+}
+
+
+.netflix-footer-icon {
+    @apply h-4 w-4 fill-current text-gray-400;
+}
+
+.netflix-footer-region {
+    @apply mt-8;
+}
