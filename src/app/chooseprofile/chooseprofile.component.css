@@ -1,0 +1,78 @@
+
+@reference "tailwindcss";
+
+:host {
+    @apply block h-full w-full;
+  }
+  
+  .group:hover .group-hover\:bg-gray-300 {
+    @apply bg-gray-300/20 rounded-lg;
+  }
+  
+  .profile-grid {
+    @apply flex flex-wrap justify-center gap-8;
+  }
+  
+  .profile-card {
+    @apply w-[150px] flex flex-col items-center rounded-md;
+  }
+  
+  .profile-image-container {
+    @apply w-[150px] h-[150px] flex justify-center items-center overflow-hidden;
+  }
+  
+  .profile-image-container img {
+    @apply w-[150px] h-[150px] object-cover;
+  }
+  
+  .profile-image-container svg {
+    @apply w-[150px] h-[150px];
+  }
+  
+  .group img, .group svg {
+    @apply transition-transform duration-200 ease-in-out;
+  }
+  
+  .group:hover img,
+  .group:hover svg {
+    @apply scale-105;
+  }
+  
+  /* Kids profile indicator */
+  .bg-blue-500 {
+    @apply bg-blue-500;
+  }
+  
+  .text-white {
+    @apply text-white;
+  }
+  
+  .text-xs {
+    @apply text-xs;
+  }
+  
+  .px-1 {
+    @apply px-1;
+  }
+  
+  .rounded {
+    @apply rounded;
+  }
+  
+  .ml-1 {
+    @apply ml-1;
+  }
+  
+  @media (max-width: 640px) {
+    h1 {
+      @apply text-2xl; 
+    }
+    
+    .flex-row {
+      @apply justify-center;
+    }
+    
+    a img, a svg {
+      @apply w-[100px] h-[100px];
+    }
+  }
