@@ -1,0 +1,195 @@
+@reference 'tailwindcss';
+body {
+    @apply m-0 font-sans bg-black text-white overflow-x-hidden;
+  }
+  
+  .navbar {
+    @apply bg-gradient-to-b hover:bg-black/40 from-black/80 to-transparent fixed w-full h-[70px] top-0 z-[1000] box-border transition-colors duration-300;
+  }
+  
+
+  
+  .navbar-container {
+    @apply flex justify-between items-center max-w-[1400px] mx-auto px-[4%] h-full;
+  }
+  
+  .navbar-left {
+    @apply flex items-center;
+  }
+  
+  .logo {
+    @apply mr-[25px] no-underline flex items-center;
+  }
+  
+  .netflix-logo {
+    @apply w-[100px] h-auto;
+  }
+  
+  .nav-links {
+    @apply list-none flex m-0 p-0;
+  }
+  
+  .nav-links li {
+    @apply cursor-pointer text-sm font-light mr-5 transition-colors duration-200 tracking-wider;
+  }
+  
+  .nav-links li:hover {
+    @apply text-[#b3b3b3];
+  }
+  
+  .nav-links li.active {
+    @apply font-medium;
+  }
+  
+  .nav-icons {
+    @apply flex items-center gap-[22px];
+  }
+  
+  .icon {
+    @apply cursor-pointer text-lg transition-transform duration-200 ease-in-out;
+  }
+  
+  .icon:hover {
+    @apply transform scale-110;
+  }
+  
+  .search {
+    @apply text-xl mr-[5px];
+  }
+  
+  .bell {
+    @apply text-xl relative;
+  }
+  
+  .profile-menu {
+    @apply relative flex items-center;
+  }
+  
+  .profile-icon {
+    @apply flex items-center cursor-pointer p-[5px];
+  }
+  
+  .profile-icon img {
+    @apply w-8 h-8 rounded mr-[5px];
+  }
+  
+  .profile-icon i {
+    @apply text-xs ml-[5px] transition-transform duration-200 ease-in-out;
+  }
+  
+  .profile-icon:hover i {
+    @apply transform rotate-180;
+  }
+  
+  .profile-dropdown {
+    @apply absolute top-full right-0 bg-black/90 border border-[#333] rounded w-[200px] py-[10px] hidden z-[1001];
+  }
+  
+  .profile-menu:hover .profile-dropdown {
+    @apply block;
+  }
+  
+  .profile-item {
+    @apply flex items-center py-2 px-[15px] cursor-pointer;
+  }
+  
+  .profile-item:hover {
+    @apply bg-[#333];
+  }
+  
+  .profile-item img {
+    @apply w-8 h-8 rounded mr-[10px];
+  }
+  
+  .profile-item-text {
+    @apply text-xs;
+  }
+  
+  .profile-divider {
+    @apply h-px bg-[#333] my-2;
+  }
+  
+  .container {
+    @apply pt-[70px] px-[60px] pb-5 max-w-[1400px] mx-auto;
+  }
+  
+  .hero-section {
+    @apply h-[80vh] mb-5 relative -mt-[70px] flex items-end bg-contain bg-center bg-no-repeat;
+    @apply  bg-[url('../../assets/strangerthings.png')];
+    @apply after:absolute after:inset-0 after:bg-gradient-to-t after:from-black/20 after:to-black/60 after:pointer-events-none after:z-[1];
+  }
+  .hero-container {
+    @apply max-w-[1400px] w-full mx-auto px-[60px];
+  }
+  
+  .hero-content {
+    @apply mb-[150px] w-[40%];
+  }
+  
+  .hero-title {
+    @apply text-[48px] font-bold mb-5;
+  }
+  
+  .hero-description {
+    @apply text-lg mb-5 leading-normal;
+  }
+  
+  .hero-buttons {
+    @apply flex gap-[10px];
+  }
+  
+  .play-button, .more-info-button {
+    @apply flex items-center justify-center py-2 px-[25px] rounded text-base font-bold cursor-pointer;
+  }
+  
+  .play-button {
+    @apply bg-white text-black;
+  }
+  
+  .more-info-button {
+    @apply bg-[#6d6d6e]/70 text-white;
+  }
+  
+  .play-button:hover {
+    @apply bg-white/75;
+  }
+  
+  .more-info-button:hover {
+    @apply bg-[#6d6d6e]/40;
+  }
+  
+  .row-header {
+    @apply text-[22px] font-medium my-10 mt-[40px] mb-[15px];
+  }
+  
+  .content-row {
+    @apply flex gap-2 overflow-x-auto pb-[10px] -mx-[10px];
+  }
+  
+  .content-row::-webkit-scrollbar {
+    @apply hidden;
+  }
+  
+  .title-card {
+    @apply min-w-[230px] h-[129px] bg-[#2f2f2f] rounded overflow-hidden transition-all duration-300 relative;
+  }
+  
+  .title-card:hover {
+    @apply transform scale-108 z-[99] shadow-md;
+  }
+  
+  .title-card img {
+    @apply w-full h-full object-cover;
+  }
+  
+  .title-card-placeholder {
+    @apply w-full h-full bg-gradient-to-br from-[#e50914] via-[#e50914] via-[40%] to-[#b20710] flex items-center justify-center;
+  }
+  
+  .page-gradient {
+    @apply fixed bottom-0 left-0 w-full h-[120px] bg-gradient-to-t from-[#141414] to-transparent pointer-events-none z-[5];
+  }
+  
+  .only-on .title-card {
+    @apply min-w-[340px] h-[190px];
+  }
