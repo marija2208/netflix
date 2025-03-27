@@ -1,0 +1,126 @@
+@reference "tailwindcss";
+
+body {
+    @apply bg-black;
+}
+
+body::before {
+    content: "";
+    @apply absolute left-0 top-0 w-full h-full bg-center bg-cover;
+    background-image: url("../../assets/netflix.jpg");
+}
+
+body::after {
+    content: "";
+    @apply absolute left-0 top-0 w-full h-full bg-black/30;
+}
+
+nav {
+    @apply fixed py-6 px-16 z-10;
+}
+
+nav a img {
+    @apply w-40 md:w-44;
+}
+
+.form-wrapper {
+    @apply  z-[30] rounded-xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  p-16 w-112 bg-black/80;
+}
+
+.form-wrapper h2 {
+    @apply text-white text-2xl;
+}
+
+.form-wrapper form {
+    @apply my-6 mb-16;
+}
+
+form .form-control {
+    @apply h-12 relative mb-4;
+}
+
+.form-control input {
+    @apply h-full w-full bg-neutral-800 border-none outline-none rounded text-white text-base px-5;
+}
+
+.form-control input:is(:focus, :valid) {
+    @apply bg-neutral-700 pt-4;
+}
+
+.form-control label {
+    @apply absolute left-5 top-1/2 -translate-y-1/2 text-base pointer-events-none text-neutral-500 transition-all duration-100;
+}
+
+.form-control input:is(:focus, :valid)~label {
+    @apply text-xs -translate-y-4/5;
+}
+
+form button {
+    @apply w-full py-2 text-base  hover:bg-red-700 bg-red-600 text-white font-medium rounded-md border-none outline-none    cursor-pointer transition-all duration-100;
+}
+
+
+form .codebutton {
+    @apply w-full py-2 text-base bg-gray-600/70 hover:bg-gray-600/50 hover:text-slate-100 text-white font-medium rounded-md border-none outline-none    cursor-pointer transition-all duration-100;
+}
+
+
+.form-wrapper a {
+    @apply no-underline;
+}
+
+.form-wrapper a:hover {
+    @apply underline;
+}
+
+.form-wrapper :where(label, p, small, a) {
+    @apply text-neutral-400;
+}
+
+
+form .remember-me {
+    @apply flex mt-4  space-x-3 ;
+}
+
+form .remember-me input {
+    @apply z-40 ;
+    accent-color: #b3b3b3;
+}
+
+form .form-help :where(label, a) {
+    @apply text-base ;
+}
+
+.form-wrapper p a {
+    @apply text-white;
+}
+
+.form-wrapper small {
+    @apply block mt-4 text-neutral-400;
+}
+
+.form-wrapper small a {
+    @apply text-blue-500;
+}
+
+@media (max-width: 740px) {
+    body::before {
+        @apply hidden;
+    }
+    
+    nav, .form-wrapper {
+        @apply p-5;
+    }
+    
+    nav a img {
+        @apply w-36;
+    }
+    
+    .form-wrapper {
+        @apply w-full top-[43%];
+    }
+    
+    .form-wrapper form {
+        @apply my-6 mb-10;
+    }
+}
