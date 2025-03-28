@@ -68,7 +68,7 @@ export class ChooseProfileComponent implements OnInit {
   logout(): void {
     this.userService.logout();
     sessionStorage.removeItem('currentProfile');
-        this.router.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
 
   getAvatarUrl(avatarPath: string): string {

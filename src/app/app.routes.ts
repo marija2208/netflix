@@ -5,6 +5,7 @@ import { ChooseProfileComponent } from './chooseprofile/chooseprofile.component'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './services/auth.guard';
 import { HomeComponent } from './home/home.component';
+import { MoviePlayerPageComponent } from './movie-player/movie-player.component';
 
 export const routes: Routes = [
     {path:'', component:HomeComponent},
@@ -14,6 +15,11 @@ export const routes: Routes = [
       component: ChooseProfileComponent,
       canActivate: [AuthGuard]
     },
+    { 
+        path: 'watch/:id', 
+        component: MoviePlayerPageComponent,
+        canActivate: [AuthGuard]
+      },
     { 
       path: 'dashboard', 
       component: DashboardComponent,
