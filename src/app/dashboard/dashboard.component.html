@@ -2,7 +2,7 @@
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-left">
-                <a href="/" class="logo"><img src="../../assets/netflixlogo.svg" class="netflix-logo"/></a>
+                <a href="/" class="logo"><img src="../../assets/icon_red.webp" class="netflix-logo"/></a>
                 <ul class="nav-links">
                     <li class="active">Home</li>
                     <li>TV Shows</li>
@@ -11,22 +11,19 @@
             </div>
             <div class="profile-menu">
                 <div class="profile-icon">
-                    <img src="/api/placeholder/32/32" alt="Current Profile">
+                    <img src="../../assets/icon_red.webp" alt="Current Profile">
                     <i class="fas fa-caret-down"></i>
                 </div>
                 <div class="profile-dropdown">
                     <div class="profile-item">
-                        <img src="/api/placeholder/32/32" alt="Profile 1">
+                        <img src="../../assets/green.png" alt="Profile 1">
                         <span class="profile-item-text">Profile 1</span>
                     </div>
                     <div class="profile-item">
-                        <img src="/api/placeholder/32/32" alt="Profile 2">
+                        <img src="../../assets/kids.png" alt="Profile 2">
                         <span class="profile-item-text">Profile 2</span>
                     </div>
-                    <div class="profile-item">
-                        <img src="/api/placeholder/32/32" alt="Kids">
-                        <span class="profile-item-text">Kids</span>
-                    </div>
+                    
                     <div class="profile-divider"></div>
                     <div class="profile-item">
                         <span class="profile-item-text">Manage Profiles</span>
@@ -38,9 +35,9 @@
                     <div class="profile-item">
                         <span class="profile-item-text">Help Center</span>
                     </div>
-                    <div class="profile-item">
+                    <button (click)="logout()" class="profile-item">
                         <span class="profile-item-text">Sign out of Netflix</span>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>

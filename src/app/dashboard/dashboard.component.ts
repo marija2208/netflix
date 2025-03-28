@@ -1,3 +1,4 @@
+import { UserService } from './../services/user.service';
 import { Component,  } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
@@ -6,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-  constructor(private router: Router) {}
+  constructor(private userService:UserService,private router: Router) {}
 
   popular = Array(6).fill(0);  
   trending = Array(6).fill(0);
@@ -16,6 +17,10 @@ export class DashboardComponent {
 
   playMovie(youtubeId: string): void {
     this.router.navigate(['/watch', youtubeId]); 
+  }
+  logout(): void {
+    this.userService.logout();
+    this.router.navigate(['/']);
   }
 
 

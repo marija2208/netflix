@@ -6,10 +6,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './services/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { MoviePlayerPageComponent } from './movie-player/movie-player.component';
+import { LoginGuard } from './services/login.guard';
 
 export const routes: Routes = [
-    {path:'', component:HomeComponent},
-    { path: 'login', component: LoginComponent },
+    {path:'', component:HomeComponent, canActivate:[LoginGuard]},
+    { path: 'login', component: LoginComponent, canActivate:[LoginGuard] },
     { 
       path: 'chooseProfile', 
       component: ChooseProfileComponent,
