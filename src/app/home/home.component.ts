@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CarouselComponent } from '../carousel/carousel.component';
 import { TrendingComponent } from '../trending/trending.component';
@@ -20,10 +21,12 @@ import { FaqComponent } from '../faq/faq.component';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   title = 'Netflix';
+
   currentBackgroundImage = '../../assets/netflix.jpg';
   private subscription: Subscription | null = null;
+  
 
-  constructor(private slideService: SlideService) {}
+  constructor(private slideService: SlideService, private router:Router ) {}
 
   ngOnInit() {
     this.subscription = this.slideService.currentImage$.subscribe(
@@ -37,5 +40,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+  }
+  signIn(){
+ this.router.navigate(['/login']);  
+
   }
 }
