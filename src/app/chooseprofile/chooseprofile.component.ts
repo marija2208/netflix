@@ -44,7 +44,7 @@ export class ChooseProfileComponent implements OnInit {
 
   selectProfile(profile: Profile): void {
     sessionStorage.setItem('currentProfile', JSON.stringify(profile));
-    this.router.navigate(['/browse']);
+    this.router.navigate(['/dashboard']);
   }
 
   canAddProfile(): boolean {
